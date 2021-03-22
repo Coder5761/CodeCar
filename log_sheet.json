@@ -1,0 +1,382 @@
+{
+     "Data": [
+          {
+               "1": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "18:35:50",
+                         "Reason": "Reserved",
+                         "Name": "Abhijt",
+                         "Paid": "6",
+                         "CarName": "Red",
+                         "CarColor": "Blue",
+                         "TotalRevenue": "6"
+                    }
+               ]
+          },
+          {
+               "2": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "18:40:51",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "8",
+                         "CarName": "4",
+                         "CarColor": "3",
+                         "TotalRevenue": "8"
+                    }
+               ]
+          },
+          {
+               "4": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "18:49:54",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "6",
+                         "CarName": "Green",
+                         "CarColor": "Red",
+                         "TotalRevenue": "6"
+                    }
+               ]
+          },
+          {
+               "6": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "18:50:12",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "10",
+                         "CarName": "Green",
+                         "CarColor": "Blue",
+                         "TotalRevenue": "10"
+                    }
+               ]
+          },
+          {
+               "8": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "18:51:18",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "10",
+                         "CarName": "Toyota5",
+                         "CarColor": "Blue",
+                         "TotalRevenue": "10"
+                    }
+               ]
+          },
+          {
+               "10": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "18:51:32",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "8",
+                         "CarName": "Toyota5",
+                         "CarColor": "Green",
+                         "TotalRevenue": "8"
+                    }
+               ]
+          },
+          {
+               "12": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "18:52:40",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "5",
+                         "CarName": "Toyota5",
+                         "CarColor": "Green",
+                         "TotalRevenue": "5"
+                    }
+               ]
+          },
+          {
+               "14": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "18:52:56",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "10",
+                         "CarName": "Toyota5",
+                         "CarColor": "Green",
+                         "TotalRevenue": "10"
+                    }
+               ]
+          },
+          {
+               "16": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "18:53:13",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "5",
+                         "CarName": "Toyota54",
+                         "CarColor": "Green",
+                         "TotalRevenue": "5"
+                    }
+               ]
+          },
+          {
+               "18": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "18:53:23",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "9",
+                         "CarName": "Toyota544",
+                         "CarColor": "Green",
+                         "TotalRevenue": "9"
+                    }
+               ]
+          },
+          {
+               "20": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "18:53:40",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "6",
+                         "CarName": "Toyota5444",
+                         "CarColor": "Green",
+                         "TotalRevenue": "6"
+                    }
+               ]
+          },
+          {
+               "22": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "18:53:51",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "7",
+                         "CarName": "Toyota5444",
+                         "CarColor": "Green5",
+                         "TotalRevenue": "7"
+                    }
+               ]
+          },
+          {
+               "24": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "18:54:02",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "7",
+                         "CarName": "Toyota5444",
+                         "CarColor": "Green54",
+                         "TotalRevenue": "7"
+                    }
+               ]
+          },
+          {
+               "26": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "18:54:25",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit5",
+                         "Paid": "6",
+                         "CarName": "Toyota5444",
+                         "CarColor": "Green54",
+                         "TotalRevenue": "6"
+                    }
+               ]
+          },
+          {
+               "28": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "18:54:36",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit5",
+                         "Paid": "6",
+                         "CarName": "Toyota5444r",
+                         "CarColor": "Green54",
+                         "TotalRevenue": "6"
+                    }
+               ]
+          },
+          {
+               "30": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "18:58:38",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit5",
+                         "Paid": "6",
+                         "CarName": "Toyota5444r8",
+                         "CarColor": "Green54",
+                         "TotalRevenue": "6"
+                    }
+               ]
+          },
+          {
+               "32": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "18:58:56",
+                         "Reason": "Reserved",
+                         "Name": "Abhi",
+                         "Paid": "6",
+                         "CarName": "red",
+                         "CarColor": "red",
+                         "TotalRevenue": "6"
+                    }
+               ]
+          },
+          {
+               "34": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "19:00:33",
+                         "Reason": "Reserved",
+                         "Name": "Abh",
+                         "Paid": "9",
+                         "CarName": "red",
+                         "CarColor": "ni",
+                         "TotalRevenue": "9"
+                    }
+               ]
+          },
+          {
+               "35": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "20:07:55",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "10",
+                         "CarName": "Toyota#7F4",
+                         "CarColor": "Red",
+                         "TotalRevenue": "10"
+                    }
+               ]
+          },
+          {
+               "36": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "20:10:23",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "6",
+                         "CarName": "Toyota#689",
+                         "CarColor": "Blue",
+                         "TotalRevenue": "6"
+                    }
+               ]
+          },
+          {
+               "37": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "20:11:17",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "6",
+                         "CarName": "Toyota#6764",
+                         "CarColor": "Geen",
+                         "TotalRevenue": "6"
+                    }
+               ]
+          },
+          {
+               "38": [
+                    {
+                         "Date": "03,14,2021",
+                         "Time": "20:11:45",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "6",
+                         "CarName": "Toyota#7874",
+                         "CarColor": "Green",
+                         "TotalRevenue": "6"
+                    }
+               ]
+          },
+          {
+               "39": [
+                    {
+                         "Date": "03,20,2021",
+                         "Time": "00:03:54",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "9",
+                         "CarName": "Toyota#875F",
+                         "CarColor": "Red",
+                         "TotalRevenue": "9"
+                    }
+               ]
+          },
+          {
+               "40": [
+                    {
+                         "Date": "03,21,2021",
+                         "Time": "20:01:17",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "8",
+                         "CarName": "Toyota#8495",
+                         "CarColor": "Red",
+                         "TotalRevenue": "8"
+                    }
+               ]
+          },
+          {
+               "41": [
+                    {
+                         "Date": "03,21,2021",
+                         "Time": "20:02:00",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "6",
+                         "CarName": "Toyo5",
+                         "CarColor": "Red",
+                         "TotalRevenue": "6"
+                    }
+               ]
+          },
+          {
+               "42": [
+                    {
+                         "Date": "03,21,2021",
+                         "Time": "20:02:57",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "7",
+                         "CarName": "Toyo53",
+                         "CarColor": "Red",
+                         "TotalRevenue": "7"
+                    }
+               ]
+          },
+          {
+               "43": [
+                    {
+                         "Date": "03,21,2021",
+                         "Time": "20:03:36",
+                         "Reason": "Reserved",
+                         "Name": "Abhijit",
+                         "Paid": "5",
+                         "CarName": "Toyo53",
+                         "CarColor": "Red",
+                         "TotalRevenue": "5"
+                    }
+               ]
+          }
+     ]
+}
