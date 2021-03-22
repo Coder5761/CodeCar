@@ -1,28 +1,103 @@
 import os
 import datetime
+import collections
+import functools
+import inspect
+import textwrap
 from random import randint
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import json
 import streamlit as st
 
+# print("Start of the program")
+
+
+def cache_on_button_press(label, **cache_kwargs):
+    internal_cache_kwargs = dict(cache_kwargs)
+    internal_cache_kwargs['allow_output_mutation'] = True
+    internal_cache_kwargs['show_spinner'] = False
+    def function_decorator(func):
+        @functools.wraps(func)
+        def wrapped_func(*args, **kwargs):
+            @st.cache(**internal_cache_kwargs)
+            def get_cache_entry(func, args, kwargs):
+                class ButtonCacheEntry:
+                    def __init__(self):
+                        self.evaluated = False
+                        self.return_value = None
+                    def evaluate(self):
+                        self.evaluated = True
+                        self.return_value = func(*args, **kwargs)
+                return ButtonCacheEntry()
+            cache_entry = get_cache_entry(func, args, kwargs)
+            if not cache_entry.evaluated:
+                if st.button(label):
+                    cache_entry.evaluate()
+                else:
+                    raise st.ScriptRunner.StopException
+            return cache_entry.return_value
+        return wrapped_func
+    return function_decorator
+def submit(name):
+        # print("hello")
+        @cache_on_button_press('submit')
+        def check():
+            name == "Test"
+        if(check()):
+            # print(array[spot-1][0], spot)
+            spotValue = st.write("This is a free spot")
+            array[spot-1][0] = 1
+            array[spot-1][1]= name_spot
+            array[spot-1][2]= car
+            array[spot-1][3]= car_color
+            sizes[spot-1]= sizes[spot-1]+1
+            money_given = randint(5, 10) * 1
+            money = money + money_given
+            # print(array)
+            # print(str(name_spot)+" paid $"+str(money_given)+" to you")
+            with open("log_sheet.json") as file:
+                now = datetime.datetime.now()
+                nowstr = now.strftime("%H:%M:%S")
+                nowstr1 = now.strftime("%m,%d,%Y")
+                data1 = {}
+                jsonCount+=1
+                data1[str(jsonCount)] = []
+                data1[str(jsonCount)].append({
+                    'Date': str(nowstr1),
+                    'Time': str(nowstr),
+                    'Reason': 'Reserved',
+                    'Name': str(name_spot),
+                    'Paid': str(money_given),
+                    'CarName': str(car),
+                    'CarColor': str(car_color),
+                    'TotalRevenue': str(money)
+                })
+                data = json.load(file)
+                temp = data['Data']
+                temp.append(data1)
+            write_json(data)
+def display_func_source(func):
+    code = inspect.getsource(confirm_button_example)
+    code = '\n'.join(code.splitlines()[1:]) # remove first line
+    st.code(textwrap.dedent(code))
 
     # input1=int(input("What is the size of parking lots?: "))
-input1 = int(st.text_input("What is the size of the parking lots"))
-    
+input1 = int(st.text_input("What is the size of the parking lots",('10')))
+on = True
+SavNum = 0
+# if(on == False and st.button("Do if you want to reset")):   
 array=[[0 for i in range(4)] for j in range(int(input1))]
+strArray = ""
 money = 0
-on = False
 spots1 = []
 value1=0
-found = False
-turns = 0
 jsonCount = 0
-multiplier = 1
-labels = [0 for i in range(input1)]
+jsonCount1 = 0
 sizes = [0 for i in range(input1)]
-sizes1 = [0 for i in range(input1)]
-
+labels = [0 for i in range(input1)]
+sizes1 = [0 for i in range(input1)]   
+# print(labels)
 for r in range(input1):
     labels[r] = str(r+1)
     
@@ -137,17 +212,17 @@ def log_load():
         data = json.load(f)
         for p in data['Data']:   
             for number in p.items():
-                print(number[0])
+                # print(number[0])
                 jsonCount = int(number[0])
             for number in p[str(jsonCount)]:
-                print('Date: '+ number['Date'])
-                print('Time: '+ number['Time'])
-                print('Reason: '+ number['Reason'])
-                print('Name: '+ number['Name'])
-                print('Paid: '+ number['Paid'])
-                print('Car Name: '+ number['CarName'])
-                print('Car Color: '+ number['CarColor'])
-                print('Total Revenue: '+ number['TotalRevenue'])
+                # print('Date: '+ number['Date'])
+                # print('Time: '+ number['Time'])
+                # print('Reason: '+ number['Reason'])
+                # print('Name: '+ number['Name'])
+                # print('Paid: '+ number['Paid'])
+                # print('Car Name: '+ number['CarName'])
+                # print('Car Color: '+ number['CarColor'])
+                # print('Total Revenue: '+ number['TotalRevenue'])
                 value1 = number['Date']
                 value2 = number['Time']
                 value3 = number['Reason']
@@ -161,9 +236,29 @@ def write_json(data, filename='log_sheet.json'):
     with open(filename,'w') as f: 
         json.dump(data, f, indent=5) 
 
-log_load()
+def write_json1(data, filename='Array.json'): 
+    with open(filename,'w') as f: 
+        json.dump(data, f, indent=5) 
 
-ask_when = st.selectbox('What would you like to do(choose commands if you are confused):',('','reserve', 'free'), key = 'Main')
+def log_load1():
+    global jsonCount1
+    global money
+    global array
+    global SavNum
+    global strArray
+    with open("Array.json") as f:
+        data = json.load(f)
+        for p in data['Data']:   
+            for number in p.items():
+                jsonCount1 = int(number[0])
+            for number in p[str(jsonCount1)]:
+                print(number)
+                SavNum = number['Spots']
+                strArray = number['Array']
+
+log_load()
+log_load1()
+ask_when = st.selectbox('What would you like to do(choose commands if you are confused):',('','reserve', 'free','graph','save','load','leave','balance','commands'), key = 'Main')
 # while on:
     # ask_when=input("What would you like to do(type commands if you are confused): ")
 if(ask_when == "reserve"):
@@ -171,21 +266,49 @@ if(ask_when == "reserve"):
         # name_spot = str(input("Please tell us your name?: "))
         # car = str(input("Please tell us your car type and brand?: "))
         # car_color = str(input("Please tell us your car's color?: "))
-    spot = int(st.text_input("which spot would you like to take?: "))
+    # print(labels)
+    spot = int(st.text_input("which spot would you like to take?: ",('0')))
     name_spot = st.text_input("Please tell us your name?: ")
     car = st.text_input("Please tell us your car type and brand?: ")
     car_color = st.text_input("Please tell us your car's color?: ")
-    if(array[spot-1][0] == 1):
-        print("sorry, this spot is already reserved, try again")
-    else:
-        array[spot-1][0]=1
+    # @cache_on_button_press('submit')
+    # if(array[spot-1][0] == 1):
+    #     spotValue = st.write("Sorry, Spot Token")
+    #     # print(array[spot-1][0], "no work")
+    # else:
+    if(st.button('Submit')):
+        # print(array[spot-1][0], spot)
+        spotValue = st.write("This is a free spot")
+        print(SavNum)
+        print(input1)
+        if(int(SavNum) != input1):
+            SavNum = input1
+            print(input1 != SavNum)
+            array=[[0 for i in range(4)] for j in range(int(input1))]
+        print(array)
+        array[spot-1][0] = 1
         array[spot-1][1]= name_spot
         array[spot-1][2]= car
         array[spot-1][3]= car_color
         sizes[spot-1]= sizes[spot-1]+1
-        money_given = randint(5, 10) * multiplier
+        money_given = randint(5, 10) * 1
         money = money + money_given
-        print(str(name_spot)+" paid $"+str(money_given)+" to you")
+        print(array) 
+        # print(str(name_spot)+" paid $"+str(money_given)+" to you")
+        with open("Array.json") as file:
+            strArray = str(array)
+            data1 = {}
+            print('geen test')
+            jsonCount1+=1
+            data1[str(jsonCount1)] = []
+            data1[str(jsonCount1)].append({
+                'Spots': str(SavNum),
+                'Array': array
+            })
+            data = json.load(file)
+            temp = data['Data']
+            temp.append(data1)
+        write_json1(data)
         with open("log_sheet.json") as file:
             now = datetime.datetime.now()
             nowstr = now.strftime("%H:%M:%S")
@@ -257,36 +380,28 @@ if(ask_when == "reserve"):
 #         write_json(data)              
 #     if(found == False):
 #         print("sorry, this spot is a free one, try again")
-elif(ask_when == "list"):
-    print(array)
-elif(ask_when == "buy"):
-    buy()
 elif(ask_when == "save"):
     save(array,money,turns,multiplier,sizes1,sizes)
 elif(ask_when == "load"):
     load()
 elif(ask_when == "leave"):
-    input3 = input("Are you sure, all unsaved changes will be discared: ")
+    input3 = st.selectbox("Are you sure, all unsaved changes will be discared: ",('','yes','no'))
     if(input3 == "yes"):
-        print("Ok, have a nice day")
-        print("Also you now have $"+ str(money)+" after a long day of work")
+        st.write("Ok, have a nice day")
+        st.write("Also you now have $"+ str(money)+" after a long day of work")
         os.exit(0)
     else:
-        print("I see, it's good to save")
+        st.write("I see, it's good to save")
 elif(ask_when == "balance"):
-    print("Balance: $" + str(money))
+    st.write("Balance: $" + str(money))
 elif(ask_when == "commands"):
-    print()
-    print("Reserve: Asks which free do you want to be taken and take the spot and name of customer")
-    print("Free: ask the customer name to free the spot")
-    print("List: shows all free/taken spots available")
-    print("Buy: buy things to help you grow and get more money")
-    print("Save: will save all your progress, can be saved to multiple files")
-    print("Load: will load progress based on the file number")
-    print("Leave: will stop the simulation !WARNING! all unsaved progress will be discarded when you leave")
-    print("Balance: shows how much money you have now")
-    print("Graph: shows how much a spot has been reserved or taken")
-    print()
+    st.write("Reserve: Asks which free do you want to be taken and take the spot and name of customer")
+    st.write("Free: ask the customer name to free the spot")
+    st.write("Save: will save all your progress, can be saved to multiple files")
+    st.write("Load: will load progress based on the file number")
+    st.write("Leave: will stop the simulation !WARNING! all unsaved progress will be discarded when you leave")
+    st.write("Balance: shows how much money you have now")
+    st.write("Graph: shows how much a spot has been reserved or taken")
 elif(ask_when == "graph"):
     fig1, ax1 = plt.subplots(1,3)
     ax1[0].pie(sizes, labels=labels, autopct='%1.1f%%', shadow=True, startangle=90)
@@ -312,7 +427,4 @@ elif(ask_when==""):
     pass
 else:
     print("sorry, I couldn't get you try again")
-if(turns > 0):
-    turns = turns - 1
-if(turns == 0):
-    multiplier = 1
+
