@@ -107,7 +107,7 @@ for i in range(input1):
     array[i][2]="clear"
     array[i][3]="none"
 
-def save(array,money,turns,multiplier,free,reserve):
+def save(array,money,free,reserve):
     global input1
     input2 = st.text_input("What Save?(type in a save number): ")
     write = "save"+input2+".txt"
@@ -259,7 +259,7 @@ def log_load1():
 
 log_load()
 log_load1()
-ask_when = st.selectbox('What would you like to do(choose commands if you are confused):',('','reserve', 'free','graph','save','load','leave','balance','commands'), key = 'Main')
+ask_when = st.selectbox('What would you like to do(choose commands if you are confused):',('','reserve', 'free','graph','leave','balance','commands'), key = 'Main')
 # while on:
     # ask_when=input("What would you like to do(type commands if you are confused): ")
 if(ask_when == "reserve"):
