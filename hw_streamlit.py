@@ -109,7 +109,7 @@ for i in range(input1):
 
 def save(array,money,turns,multiplier,free,reserve):
     global input1
-    input2 = input("What Save?(type in a save number): ")
+    input2 = st.text_input("What Save?(type in a save number): ")
     write = "save"+input2+".txt"
     with open(write,"w") as file:
         for i in range(int(input1)):
