@@ -384,7 +384,7 @@ elif(ask_when == "free"):
     if(found == False):
         print("sorry, this spot is a free one, try again")
 elif(ask_when == "save"):
-    save(array,money,turns,multiplier,sizes1,sizes)
+    save(array,money,sizes1,sizes)
 elif(ask_when == "load"):
     load()
 elif(ask_when == "leave"):
